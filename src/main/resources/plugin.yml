@@ -1,0 +1,12 @@
+name: Headless
+version: ${project.version}
+main: headless.headless.Headless
+api-version: 1.13
+authors: [Niewidzialny84]
+description: Dropping heads
+
+commands:
+  headless:
+    permission: headless
+    usage: /headless
+    permission-message: You are not allowed to use this command.
