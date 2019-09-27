@@ -9,6 +9,7 @@ public final class Headless extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        MetricsLite metricsLite = new MetricsLite(this);
         saveDefaultConfig();
 
         Config.load(this);
