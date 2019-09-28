@@ -3,6 +3,7 @@ package headless.headless;
 import headless.headless.Commands.Basic;
 import headless.headless.Commands.BasicTab;
 import org.bukkit.Bukkit;
+import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Headless extends JavaPlugin {

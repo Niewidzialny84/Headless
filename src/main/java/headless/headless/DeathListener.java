@@ -29,7 +29,7 @@ public class DeathListener implements Listener {
         if(e.getEntity() != null) {
             if(Config.configMap.get("PLAYER").getKey()) {
                 Random randomGenerator = new Random();
-                float random = randomGenerator.nextFloat();
+                double random = randomGenerator.nextDouble();
 
                 if(random <= Config.configMap.get("PLAYER").getValue()) {
                     ItemStack head = new ItemStack(Material.PLAYER_HEAD,1);
@@ -511,16 +511,17 @@ public class DeathListener implements Listener {
 
     private void dropItem(Location location, MobHead type,double chance) {
         Random randomGenerator = new Random();
-        float random = randomGenerator.nextFloat();
+        double random = randomGenerator.nextDouble();
         if(random <= chance) {
           //  System.out.println("dropped");
+           // System.out.println(random+"  "+chance);
             location.getWorld().dropItem(location,getTexturedSkull(type.getName(),type.getUrl()));
         }
     }
 
     private void dropItem(Location location,double chance,ItemStack drop) {
         Random randomGenerator = new Random();
-        float random = randomGenerator.nextFloat();
+        double random = randomGenerator.nextDouble();
         if(random <= chance) {
             //  System.out.println("dropped");
             location.getWorld().dropItem(location,drop);

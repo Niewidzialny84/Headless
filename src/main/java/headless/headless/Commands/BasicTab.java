@@ -45,7 +45,7 @@ public class BasicTab implements TabCompleter {
             } else if (args.length == 3) {
                 if(args[0].equalsIgnoreCase("GETHEAD")) {
                     if(HEAD.contains(args[1])) {
-                        return PLAYERS;
+                        return null;
                     }
                 }
             }
