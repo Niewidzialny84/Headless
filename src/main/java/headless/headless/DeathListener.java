@@ -4,6 +4,7 @@ import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.properties.Property;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -549,5 +550,12 @@ public class DeathListener implements Listener {
         return head;
     }
 
+    public static ItemStack getPlayerHead (OfflinePlayer player) {
+        ItemStack head = new ItemStack(Material.PLAYER_HEAD,1);
+        ItemMeta meta = head.getItemMeta();
+        ((SkullMeta)meta).setOwningPlayer(player);
+        head.setItemMeta(meta);
+        return head;
+    }
 
 }

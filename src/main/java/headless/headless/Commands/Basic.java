@@ -3,10 +3,7 @@ package headless.headless.Commands;
 import headless.headless.Config;
 import headless.headless.DeathListener;
 import headless.headless.MobHead;
-import org.bukkit.ChatColor;
-import org.bukkit.Color;
-import org.bukkit.EntityEffect;
-import org.bukkit.Sound;
+import org.bukkit.*;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -67,6 +64,30 @@ public class Basic implements CommandExecutor {
                         commandSender.sendMessage(ChatColor.DARK_AQUA+"Missing head name");
                         return true;
                     }
+                } else if (args[0].equalsIgnoreCase("GETPLAYERHEAD")) {
+                    if(args.length >= 2) {
+                        if(args[1] != null) {
+                            if(args.length == 3) {
+                                Collection<? extends Player> p = plugin.getServer().getOnlinePlayers();
+                                for (Player a : p) {
+                                    if (args[2].equals(a.getName())) {
+                                        a.getPlayer().getInventory().addItem(DeathListener.getPlayerHead(Bukkit.getOfflinePlayer(args[1])));
+                                        a.getPlayer().playSound(a.getLocation(), Sound.ENTITY_ITEM_PICKUP, 2, 0);
+                                        return true;
+                                    }
+                                }
+                                commandSender.sendMessage(ChatColor.DARK_AQUA + "Player " + ChatColor.AQUA + args[2] + ChatColor.DARK_AQUA + " not found");
+                                return true;
+                            } else {
+                                ((Player) commandSender).getPlayer().getInventory().addItem(DeathListener.getPlayerHead(Bukkit.getOfflinePlayer(args[1])));
+                                ((Player) commandSender).getPlayer().playSound(((Player) commandSender).getPlayer().getLocation(), Sound.ENTITY_ITEM_PICKUP, 2, 0);
+                                return true;
+                            }
+                        }
+                    }else if(args.length == 1) {
+                        commandSender.sendMessage(ChatColor.DARK_AQUA + "Missing player head name");
+                        return true;
+                    }
                 } else {
                     printHelp(commandSender);
                     return true;
@@ -113,7 +134,30 @@ public class Basic implements CommandExecutor {
                         printHelp(commandSender);
                         return true;
                     }
-                } else {
+                } else if (args[0].equalsIgnoreCase("GETPLAYERHEAD")) {
+                    if (args.length >= 2) {
+                        if (args[1] != null) {
+                            if (args.length == 3) {
+                                Collection<? extends Player> p = plugin.getServer().getOnlinePlayers();
+                                for (Player a : p) {
+                                    if (args[2].equals(a.getName())) {
+                                        a.getPlayer().getInventory().addItem(DeathListener.getPlayerHead(Bukkit.getOfflinePlayer(args[1])));
+                                        a.getPlayer().playSound(a.getLocation(), Sound.ENTITY_ITEM_PICKUP, 2, 0);
+                                        return true;
+                                    }
+                                }
+                                commandSender.sendMessage(ChatColor.DARK_AQUA + "Player " + ChatColor.AQUA + args[2] + ChatColor.DARK_AQUA + " not found");
+                                return true;
+                            }
+                        }
+                        commandSender.sendMessage(ChatColor.DARK_AQUA + "Missing player name");
+                        return true;
+                    } else if (args.length == 1) {
+                        commandSender.sendMessage(ChatColor.DARK_AQUA + "Missing player head name");
+                        return true;
+                    }
+                }
+                else {
                     printHelp(commandSender);
                     return true;
                 }
@@ -126,7 +170,8 @@ public class Basic implements CommandExecutor {
     private void printHelp(CommandSender sender) {
         sender.sendMessage(ChatColor.DARK_AQUA+"Headless help:");
         sender.sendMessage(ChatColor.DARK_AQUA+"/headless reload"+ChatColor.GRAY+" - reloads plugin");
-        sender.sendMessage(ChatColor.DARK_AQUA+"/headless gethead <head> <player>"+ChatColor.GRAY+" - gives player head");
+        sender.sendMessage(ChatColor.DARK_AQUA+"/headless gethead <head> <player>"+ChatColor.GRAY+" - gives head");
+        sender.sendMessage(ChatColor.DARK_AQUA+"/headless getplayerhead <player_head> <player>"+ChatColor.GRAY+" - gives player head");
 
     }
 }

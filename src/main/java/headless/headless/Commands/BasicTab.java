@@ -15,7 +15,7 @@ import java.util.List;
 
 public class BasicTab implements TabCompleter {
     private final static List<String> EMPTY = new ArrayList<>();
-    private List<String> SUB = Arrays.asList("help","reload","gethead");
+    private List<String> SUB = Arrays.asList("help","reload","gethead","getplayerhead");
     private List<String> HEAD = new ArrayList<>();
     private List<String> PLAYERS = new ArrayList<>();
 
@@ -41,12 +41,16 @@ public class BasicTab implements TabCompleter {
             } else if(args.length == 2) {
                 if(args[0].equalsIgnoreCase("GETHEAD")) {
                     return HEAD;
+                } else if(args[0].equalsIgnoreCase("GETPLAYERHEAD")) {
+                    return null;
                 }
             } else if (args.length == 3) {
                 if(args[0].equalsIgnoreCase("GETHEAD")) {
                     if(HEAD.contains(args[1])) {
                         return null;
                     }
+                } else if(args[0].equalsIgnoreCase("GETPLAYERHEAD")) {
+                    return null;
                 }
             }
             return EMPTY;
