@@ -2,6 +2,7 @@ package headless.headless;
 
 import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.properties.Property;
+import org.apache.commons.lang.StringUtils;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.OfflinePlayer;
@@ -13,11 +14,15 @@ import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
+import org.bukkit.permissions.Permission;
+import org.bukkit.permissions.PermissionAttachmentInfo;
 import org.bukkit.plugin.Plugin;
+import org.bukkit.util.StringUtil;
 
 import java.lang.reflect.Field;
 import java.util.Random;
 import java.util.UUID;
+import java.util.regex.Pattern;
 
 public class DeathListener implements Listener {
     private Plugin plugin;
@@ -25,14 +30,21 @@ public class DeathListener implements Listener {
         this.plugin = plugin;
     }
 
+    private Player p;
+
     @EventHandler
     public void playerDeath(PlayerDeathEvent e) {
         if(e.getEntity() != null) {
             if(Config.configMap.get("PLAYER").getKey()) {
                 Random randomGenerator = new Random();
                 double random = randomGenerator.nextDouble();
+                double chance = Config.configMap.get("PLAYER").getValue();
 
-                if(random <= Config.configMap.get("PLAYER").getValue()) {
+                if(p.hasPermission("headless.custom.drop")) {
+                    chance = permChance("PLAYER",chance);
+                }
+
+                if(random <= chance) {
                     ItemStack head = new ItemStack(Material.PLAYER_HEAD,1);
                     ItemMeta meta = head.getItemMeta();
                     ((SkullMeta)meta).setOwningPlayer(e.getEntity());
@@ -46,6 +58,7 @@ public class DeathListener implements Listener {
     @EventHandler
     public void mobDeath(EntityDeathEvent e) {
         if(e.getEntity().getKiller() != null ) {
+            p = e.getEntity().getKiller();
             switch ( e.getEntity().getType()) {
                 case BAT:
                     if(Config.configMap.get("BAT").getKey()) {
@@ -79,7 +92,7 @@ public class DeathListener implements Listener {
                     break;
                 case CREEPER:
                     if(Config.configMap.get("CREEPER").getKey()) {
-                        dropItem(e.getEntity().getLocation(), Config.configMap.get("COW").getValue(),new ItemStack(Material.CREEPER_HEAD,1));
+                        dropItem(e.getEntity().getLocation(), Config.configMap.get("COW").getValue(),new ItemStack(Material.CREEPER_HEAD,1),"CREEPER");
                     }
                     break;
                 case DROWNED:
@@ -214,7 +227,7 @@ public class DeathListener implements Listener {
                     break;
                 case SKELETON:
                     if(Config.configMap.get("SKELETON").getKey()) {
-                        dropItem(e.getEntity().getLocation(),Config.configMap.get("SKELETON").getValue(),new ItemStack(Material.SKELETON_SKULL,1));
+                        dropItem(e.getEntity().getLocation(),Config.configMap.get("SKELETON").getValue(),new ItemStack(Material.SKELETON_SKULL,1),"SKELETON");
                     }
                     break;
                 case SLIME:
@@ -269,7 +282,7 @@ public class DeathListener implements Listener {
                     break;
                 case ZOMBIE:
                     if(Config.configMap.get("ZOMBIE").getKey()) {
-                        dropItem(e.getEntity().getLocation(),Config.configMap.get("ZOMBIE").getValue(),new ItemStack(Material.ZOMBIE_HEAD,1));
+                        dropItem(e.getEntity().getLocation(),Config.configMap.get("ZOMBIE").getValue(),new ItemStack(Material.ZOMBIE_HEAD,1),"ZOMBIE");
                     }
                     break;
                 case ZOMBIE_VILLAGER:
@@ -513,6 +526,11 @@ public class DeathListener implements Listener {
     private void dropItem(Location location, MobHead type,double chance) {
         Random randomGenerator = new Random();
         double random = randomGenerator.nextDouble();
+
+        if(p.hasPermission("headless.custom.drop")) {
+            chance = permChance(type.name(),chance);
+        }
+
         if(random <= chance) {
           //  System.out.println("dropped");
            // System.out.println(random+"  "+chance);
@@ -520,13 +538,30 @@ public class DeathListener implements Listener {
         }
     }
 
-    private void dropItem(Location location,double chance,ItemStack drop) {
+    private void dropItem(Location location,double chance,ItemStack drop,String type) {
         Random randomGenerator = new Random();
         double random = randomGenerator.nextDouble();
+
+        if(p.hasPermission("headless.custom.drop")) {
+            chance = permChance(type,chance);
+        }
+
         if(random <= chance) {
             //  System.out.println("dropped");
             location.getWorld().dropItem(location,drop);
         }
+    }
+
+    private double permChance(String type, double chance) {
+        for(PermissionAttachmentInfo x : p.getEffectivePermissions()) {
+            String permission = x.getPermission();
+            if(StringUtil.startsWithIgnoreCase(permission,"headless."+type)) {
+                String value = permission.split(Pattern.quote("."))[2];
+                chance = Double.valueOf(value)/100;
+                break;
+            }
+        }
+        return chance;
     }
 
     public static ItemStack getTexturedSkull(String name, String encodedURL) {
