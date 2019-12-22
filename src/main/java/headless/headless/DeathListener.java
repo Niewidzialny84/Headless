@@ -2,7 +2,6 @@ package headless.headless;
 
 import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.properties.Property;
-import org.apache.commons.lang.StringUtils;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.OfflinePlayer;
@@ -14,7 +13,6 @@ import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
-import org.bukkit.permissions.Permission;
 import org.bukkit.permissions.PermissionAttachmentInfo;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.util.StringUtil;
@@ -63,6 +61,12 @@ public class DeathListener implements Listener {
                 case BAT:
                     if(Config.configMap.get("BAT").getKey()) {
                         dropItem(e.getEntity().getLocation(), MobHead.BAT , Config.configMap.get("BAT").getValue());
+                    }
+                    break;
+                case BEE:
+                    if(Config.configMap.get("BEE").getKey()) {
+                        dropItem(e.getEntity().getLocation(), MobHead.BEE , Config.configMap.get("BEE").getValue());
+
                     }
                     break;
                 case BLAZE:

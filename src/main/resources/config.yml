@@ -7,6 +7,9 @@ BAT:
 BLAZE:
   drop: true
   chance: 5
+BEE:
+  drop: true
+  chance: 5
 CAT:
   drop: true
   chance: 5
