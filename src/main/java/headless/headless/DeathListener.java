@@ -96,7 +96,7 @@ public class DeathListener implements Listener {
                     break;
                 case CREEPER:
                     if(Config.configMap.get("CREEPER").getKey()) {
-                        dropItem(e.getEntity().getLocation(), Config.configMap.get("COW").getValue(),new ItemStack(Material.CREEPER_HEAD,1),"CREEPER");
+                        dropItem(e.getEntity().getLocation(), Config.configMap.get("CREEPER").getValue(),new ItemStack(Material.CREEPER_HEAD,1),"CREEPER");
                     }
                     break;
                 case DROWNED:
