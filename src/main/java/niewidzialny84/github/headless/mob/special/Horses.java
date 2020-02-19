@@ -4,7 +4,7 @@ import niewidzialny84.github.headless.MobHead;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Horse.Color;
 
-public enum Horse {
+public enum Horses {
     GRAY(Color.GRAY,MobHead.GRAY_HORSE),
     BROWN(Color.BROWN,MobHead.BROWN_HORSE),
     WHITE(Color.WHITE,MobHead.CREAMY_HORSE),
@@ -17,14 +17,14 @@ public enum Horse {
     public Color color;
     public MobHead mobHead;
 
-    Horse(Color color, MobHead mobHead) {
+    Horses(Color color, MobHead mobHead) {
         this.color = color;
         this.mobHead = mobHead;
     }
 
-    public static Horse getHorse(Entity entity) {
+    public static Horses getHorse(Entity entity) {
         Color color = ((org.bukkit.entity.Horse)entity).getColor();
-        for(Horse x : Horse.values()) {
+        for(Horses x : Horses.values()) {
             if(color.equals(x.color)) {
                 return x;
             }

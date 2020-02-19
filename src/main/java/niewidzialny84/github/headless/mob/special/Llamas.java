@@ -4,7 +4,7 @@ import niewidzialny84.github.headless.MobHead;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Llama.Color;
 
-public enum Llama {
+public enum Llamas {
     WHITE(Color.WHITE,MobHead.WHITE_LLAMA),
     GRAY(Color.GRAY,MobHead.GRAY_LLAMA),
     BROWN(Color.BROWN,MobHead.BROWN_LLAMA),
@@ -14,14 +14,14 @@ public enum Llama {
     public Color color;
     public MobHead mobHead;
 
-    Llama(Color color, MobHead mobHead) {
+    Llamas(Color color, MobHead mobHead) {
         this.color = color;
         this.mobHead = mobHead;
     }
 
-    public static Llama getLlama(Entity entity) {
+    public static Llamas getLlama(Entity entity) {
         Color color = ((org.bukkit.entity.Llama)entity).getColor();
-        for(Llama x : Llama.values()) {
+        for(Llamas x : Llamas.values()) {
             if(color.equals(x.color)) {
                 return x;
             }

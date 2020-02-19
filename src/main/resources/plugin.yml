@@ -1,6 +1,6 @@
 name: Headless
 version: ${project.version}
-main: headless.headless.Headless
+main: niewidzialny84.github.headless.Headless
 api-version: 1.15
 authors: [Niewidzialny84]
 description: Dropping heads

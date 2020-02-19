@@ -4,7 +4,7 @@ import niewidzialny84.github.headless.MobHead;
 import org.bukkit.DyeColor;
 import org.bukkit.entity.Entity;
 
-public enum Sheep {
+public enum Sheeps {
     BLACK(DyeColor.BLACK,MobHead.SHEEP_BLACK),
     WHITE(DyeColor.WHITE,MobHead.SHEEP_WHITE),
     BROWN(DyeColor.BROWN,MobHead.SHEEP_BROWN),
@@ -26,14 +26,14 @@ public enum Sheep {
     public DyeColor color;
     public MobHead mobHead;
 
-    Sheep(DyeColor color, MobHead mobHead) {
+    Sheeps(DyeColor color, MobHead mobHead) {
         this.color = color;
         this.mobHead = mobHead;
     }
 
-    public static Sheep getSheep(Entity entity) {
+    public static Sheeps getSheep(Entity entity) {
         DyeColor color = ((org.bukkit.entity.Sheep)entity).getColor();
-        for(Sheep x : Sheep.values()) {
+        for(Sheeps x : Sheeps.values()) {
             if(color.equals(x.color)) {
                 return x;
             }

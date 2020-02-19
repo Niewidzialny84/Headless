@@ -4,7 +4,7 @@ import niewidzialny84.github.headless.MobHead;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Rabbit.Type;
 
-public enum Rabbit {
+public enum Rabbits {
     BROWN(Type.BROWN,MobHead.BROWN_RABBIT),
     WHITE(Type.WHITE,MobHead.WHITE_RABBIT),
     BLACK(Type.BLACK,MobHead.BLACK_RABBIT),
@@ -17,14 +17,14 @@ public enum Rabbit {
     public Type type;
     public MobHead mobHead;
 
-    Rabbit(Type type, MobHead mobHead) {
+    Rabbits(Type type, MobHead mobHead) {
         this.type = type;
         this.mobHead = mobHead;
     }
 
-    public static Rabbit getRabbit(Entity entity) {
+    public static Rabbits getRabbit(Entity entity) {
         Type type = ((org.bukkit.entity.Rabbit)entity).getRabbitType();
-        for(Rabbit x : Rabbit.values()) {
+        for(Rabbits x : Rabbits.values()) {
             if(type.equals(x.type)) {
                 return x;
             }

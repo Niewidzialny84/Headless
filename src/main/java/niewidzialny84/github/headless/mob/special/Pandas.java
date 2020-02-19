@@ -4,7 +4,7 @@ import niewidzialny84.github.headless.MobHead;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Panda.Gene;
 
-public enum Panda {
+public enum Pandas {
     BROWN(Gene.BROWN, MobHead.PANDA_BROWN),
     NORMAL(Gene.NORMAL, MobHead.PANDA_PLAYFUL),
     LAZY(Gene.LAZY, MobHead.PANDA_LAZY),
@@ -17,14 +17,14 @@ public enum Panda {
     public Gene gene;
     public MobHead mobHead;
 
-    Panda(Gene gene, MobHead mobHead) {
+    Pandas(Gene gene, MobHead mobHead) {
         this.gene = gene;
         this.mobHead = mobHead;
     }
 
-    public static Panda getPanda(Entity entity) {
+    public static Pandas getPanda(Entity entity) {
         Gene gene = ((org.bukkit.entity.Panda)entity).getMainGene();
-        for(Panda x : Panda.values()) {
+        for(Pandas x : Pandas.values()) {
             if(gene.equals(x.gene)) {
                 return x;
             }

@@ -3,6 +3,7 @@ package niewidzialny84.github.headless;
 import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.properties.Property;
 import niewidzialny84.github.headless.mob.Mob;
+import niewidzialny84.github.headless.mob.special.*;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.OfflinePlayer;
@@ -67,51 +68,37 @@ public class DeathListener implements Listener {
                     break;
                 case CAT:
                     if (Config.configMap.get("CAT").getKey()) {
-                        dropItem(e.getEntity().getLocation(),
-                                niewidzialny84.github.headless.mob.special.Cat.getCat(entity).mobhead,
-                                Config.configMap.get("CAT").getValue());
+                        dropItem(e.getEntity().getLocation(), Cats.getCat(entity).mobhead, Config.configMap.get("CAT").getValue());
                     }
                     break;
                 case HORSE:
                     if (Config.configMap.get("HORSE").getKey()) {
-                        dropItem(e.getEntity().getLocation(),
-                                niewidzialny84.github.headless.mob.special.Horse.getHorse(entity).mobHead,
-                                Config.configMap.get("HORSE").getValue());
+                        dropItem(e.getEntity().getLocation(), Horses.getHorse(entity).mobHead, Config.configMap.get("HORSE").getValue());
                     }
                     break;
                 case LLAMA:
                     if (Config.configMap.get("LLAMA").getKey()) {
-                        dropItem(e.getEntity().getLocation(),
-                                niewidzialny84.github.headless.mob.special.Llama.getLlama(entity).mobHead,
-                                Config.configMap.get("LLAMA").getValue());
+                        dropItem(e.getEntity().getLocation(), Llamas.getLlama(entity).mobHead, Config.configMap.get("LLAMA").getValue());
                     }
                     break;
                 case PANDA:
                     if (Config.configMap.get("PANDA").getKey()) {
-                        dropItem(e.getEntity().getLocation(),
-                                niewidzialny84.github.headless.mob.special.Panda.getPanda(entity).mobHead,
-                                Config.configMap.get("PANDA").getValue());
+                        dropItem(e.getEntity().getLocation(), Pandas.getPanda(entity).mobHead, Config.configMap.get("PANDA").getValue());
                     }
                     break;
                 case PARROT:
                     if (Config.configMap.get("PARROT").getKey()) {
-                        dropItem(e.getEntity().getLocation(),
-                                niewidzialny84.github.headless.mob.special.Parrot.getParrot(entity).mobHead,
-                                Config.configMap.get("PARROT").getValue());
+                        dropItem(e.getEntity().getLocation(), Parrots.getParrot(entity).mobHead, Config.configMap.get("PARROT").getValue());
                     }
                     break;
                 case RABBIT:
                     if (Config.configMap.get("RABBIT").getKey()) {
-                        dropItem(e.getEntity().getLocation(),
-                                niewidzialny84.github.headless.mob.special.Rabbit.getRabbit(entity).mobHead,
-                                Config.configMap.get("RABBIT").getValue());
+                        dropItem(e.getEntity().getLocation(), Rabbits.getRabbit(entity).mobHead, Config.configMap.get("RABBIT").getValue());
                     }
                     break;
                 case SHEEP:
                     if (Config.configMap.get("SHEEP").getKey()) {
-                        dropItem(e.getEntity().getLocation(),
-                                niewidzialny84.github.headless.mob.special.Sheep.getSheep(entity).mobHead,
-                                Config.configMap.get("SHEEP").getValue());
+                        dropItem(e.getEntity().getLocation(), Sheeps.getSheep(entity).mobHead, Config.configMap.get("SHEEP").getValue());
                     }
                     break;
                 default:
@@ -125,7 +112,6 @@ public class DeathListener implements Listener {
                     }
                     break;
             }
-
         }
     }
 
@@ -134,8 +120,6 @@ public class DeathListener implements Listener {
         double random = randomGenerator.nextDouble();
 
         if(random <= chance) {
-          //  System.out.println("dropped");
-           // System.out.println(random+"  "+chance);
             location.getWorld().dropItem(location,getTexturedSkull(type.getName(),type.getUrl()));
         }
     }
@@ -145,7 +129,6 @@ public class DeathListener implements Listener {
         double random = randomGenerator.nextDouble();
 
         if(random <= chance) {
-            //  System.out.println("dropped");
             location.getWorld().dropItem(location,drop);
         }
     }
