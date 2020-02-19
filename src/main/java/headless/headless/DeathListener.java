@@ -26,8 +26,6 @@ public class DeathListener implements Listener {
         this.plugin = plugin;
     }
 
-    private Player p;
-
     @EventHandler
     public void playerDeath(PlayerDeathEvent e) {
         if(e.getEntity().getPlayer() != null) {
@@ -35,11 +33,7 @@ public class DeathListener implements Listener {
                 Random randomGenerator = new Random();
                 double random = randomGenerator.nextDouble();
                 double chance = Config.configMap.get("PLAYER").getValue();
-/*
-                if(p.hasPermission("headless.custom.drop")) {
-                    chance = permChance("PLAYER",chance);
-                }
-*/
+
                 if(random <= chance) {
                     ItemStack head = new ItemStack(Material.PLAYER_HEAD,1);
                     ItemMeta meta = head.getItemMeta();
@@ -54,7 +48,6 @@ public class DeathListener implements Listener {
     @EventHandler
     public void mobDeath(EntityDeathEvent e) {
         if(e.getEntity().getKiller() != null ) {
-            p = e.getEntity().getKiller();
             switch ( e.getEntity().getType()) {
                 case BAT:
                     if(Config.configMap.get("BAT").getKey()) {
@@ -528,11 +521,7 @@ public class DeathListener implements Listener {
     private void dropItem(Location location, MobHead type,double chance) {
         Random randomGenerator = new Random();
         double random = randomGenerator.nextDouble();
-/*
-        if(p.hasPermission("headless.custom.drop")) {
-            chance = permChance(type.name(),chance);
-        }
-*/
+
         if(random <= chance) {
           //  System.out.println("dropped");
            // System.out.println(random+"  "+chance);
@@ -543,11 +532,7 @@ public class DeathListener implements Listener {
     private void dropItem(Location location,double chance,ItemStack drop,String type) {
         Random randomGenerator = new Random();
         double random = randomGenerator.nextDouble();
-/*
-        if(p.hasPermission("headless.custom.drop")) {
-            chance = permChance(type,chance);
-        }
-*/
+
         if(random <= chance) {
             //  System.out.println("dropped");
             location.getWorld().dropItem(location,drop);
