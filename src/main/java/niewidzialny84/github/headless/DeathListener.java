@@ -2,6 +2,7 @@ package niewidzialny84.github.headless;
 
 import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.properties.Property;
+import niewidzialny84.github.headless.mob.Mob;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.OfflinePlayer;
@@ -48,6 +49,84 @@ public class DeathListener implements Listener {
     @EventHandler
     public void mobDeath(EntityDeathEvent e) {
         if(e.getEntity().getKiller() != null ) {
+            Entity entity = e.getEntity();
+            switch (entity.getType()) {
+                case CREEPER:
+                    if(Config.configMap.get("CREEPER").getKey()) {
+                        dropItem(e.getEntity().getLocation(), Config.configMap.get("CREEPER").getValue(),new ItemStack(Material.CREEPER_HEAD,1),"CREEPER");
+                    }
+                    break;
+                case ZOMBIE:
+                    if(Config.configMap.get("ZOMBIE").getKey()) {
+                        dropItem(e.getEntity().getLocation(), Config.configMap.get("ZOMBIE").getValue(),new ItemStack(Material.ZOMBIE_HEAD,1),"ZOMBIE");
+                    }
+                    break;
+                case SKELETON:
+                    if(Config.configMap.get("SKELETON").getKey()) {
+                        dropItem(e.getEntity().getLocation(), Config.configMap.get("SKELETON").getValue(),new ItemStack(Material.SKELETON_SKULL,1),"SKELETON");
+                    }
+                    break;
+                case CAT:
+                    if(Config.configMap.get("CAT").getKey()) {
+                        dropItem(e.getEntity().getLocation(),
+                                niewidzialny84.github.headless.mob.special.Cat.getCat(entity).mobhead ,
+                                Config.configMap.get("CAT").getValue());
+                    }
+                    break;
+                case HORSE:
+                    if(Config.configMap.get("HORSE").getKey()) {
+                        dropItem(e.getEntity().getLocation(),
+                                niewidzialny84.github.headless.mob.special.Horse.getHorse(entity).mobHead,
+                                Config.configMap.get("HORSE").getValue());
+                    }
+                    break;
+                case LLAMA:
+                    if(Config.configMap.get("LLAMA").getKey()) {
+                        dropItem(e.getEntity().getLocation(),
+                                niewidzialny84.github.headless.mob.special.Llama.getLlama(entity).mobHead,
+                                Config.configMap.get("LLAMA").getValue());
+                    }
+                    break;
+                case PANDA:
+                    if(Config.configMap.get("PANDA").getKey()) {
+                        dropItem(e.getEntity().getLocation(),
+                                niewidzialny84.github.headless.mob.special.Panda.getPanda(entity).mobHead,
+                                Config.configMap.get("PANDA").getValue());
+                    }
+                    break;
+                case PARROT:
+                    if(Config.configMap.get("PARROT").getKey()) {
+                        dropItem(e.getEntity().getLocation(),
+                                niewidzialny84.github.headless.mob.special.Parrot.getParrot(entity).mobHead,
+                                Config.configMap.get("PARROT").getValue());
+                    }
+                    break;
+                case RABBIT:
+                    if(Config.configMap.get("RABBIT").getKey()) {
+                        dropItem(e.getEntity().getLocation(),
+                                niewidzialny84.github.headless.mob.special.Rabbit.getRabbit(entity).mobHead,
+                                Config.configMap.get("RABBIT").getValue());
+                    }
+                    break;
+                case SHEEP:
+                    if(Config.configMap.get("SHEEP").getKey()) {
+                        dropItem(e.getEntity().getLocation(),
+                                niewidzialny84.github.headless.mob.special.Sheep.getSheep(entity).mobHead,
+                                Config.configMap.get("SHEEP").getValue());
+                    }
+                    break;
+                default:
+                    for(Mob x : Mob.values()) {
+                        if(entity.getType().equals(x.entity)) {
+                            if(Config.configMap.get(x.name()).getKey()) {
+                                dropItem(e.getEntity().getLocation(),x.mobHead,Config.configMap.get(x.name()).getValue());
+                            }
+                            break;
+                        }
+                    }
+                    break;
+            }
+
             switch ( e.getEntity().getType()) {
                 case BAT:
                     if(Config.configMap.get("BAT").getKey()) {
