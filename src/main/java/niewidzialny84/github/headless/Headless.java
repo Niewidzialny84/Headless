@@ -1,7 +1,7 @@
-package niewidzialny84.github;
+package niewidzialny84.github.headless;
 
-import niewidzialny84.github.Commands.Basic;
-import niewidzialny84.github.Commands.BasicTab;
+import niewidzialny84.github.headless.Commands.Basic;
+import niewidzialny84.github.headless.Commands.BasicTab;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 

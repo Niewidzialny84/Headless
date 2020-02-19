@@ -1,8 +1,8 @@
-package niewidzialny84.github.Commands;
+package niewidzialny84.github.headless.Commands;
 
-import niewidzialny84.github.Config;
-import niewidzialny84.github.DeathListener;
-import niewidzialny84.github.MobHead;
+import niewidzialny84.github.headless.Config;
+import niewidzialny84.github.headless.DeathListener;
+import niewidzialny84.github.headless.MobHead;
 import org.bukkit.*;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

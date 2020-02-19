@@ -1,6 +1,6 @@
-package niewidzialny84.github.Commands;
+package niewidzialny84.github.headless.Commands;
 
-import niewidzialny84.github.MobHead;
+import niewidzialny84.github.headless.MobHead;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;

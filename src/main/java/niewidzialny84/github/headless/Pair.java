@@ -1,4 +1,4 @@
-package niewidzialny84.github;
+package niewidzialny84.github.headless;
 
 public class Pair {
     private boolean key;
