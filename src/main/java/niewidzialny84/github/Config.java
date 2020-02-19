@@ -1,4 +1,4 @@
-package headless.headless;
+package niewidzialny84.github;
 
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.Plugin;

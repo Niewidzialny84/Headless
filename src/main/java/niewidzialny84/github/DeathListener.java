@@ -1,4 +1,4 @@
-package headless.headless;
+package niewidzialny84.github;
 
 import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.properties.Property;

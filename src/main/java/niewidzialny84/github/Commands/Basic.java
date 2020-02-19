@@ -1,18 +1,16 @@
-package headless.headless.Commands;
+package niewidzialny84.github.Commands;
 
-import headless.headless.Config;
-import headless.headless.DeathListener;
-import headless.headless.MobHead;
+import niewidzialny84.github.Config;
+import niewidzialny84.github.DeathListener;
+import niewidzialny84.github.MobHead;
 import org.bukkit.*;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
 import java.util.Collection;
-import java.util.List;
 
 public class Basic implements CommandExecutor {
 

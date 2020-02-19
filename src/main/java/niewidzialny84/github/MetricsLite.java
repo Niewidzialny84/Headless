@@ -1,4 +1,4 @@
-package headless.headless;
+package niewidzialny84.github;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
