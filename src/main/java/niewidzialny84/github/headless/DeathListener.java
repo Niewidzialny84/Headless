@@ -38,9 +38,11 @@ public class DeathListener implements Listener {
                 if(random <= chance) {
                     ItemStack head = new ItemStack(Material.PLAYER_HEAD,1);
                     ItemMeta meta = head.getItemMeta();
-                    ((SkullMeta)meta).setOwningPlayer(e.getEntity());
-                    head.setItemMeta(meta);
-                    e.getEntity().getLocation().getWorld().dropItem(e.getEntity().getLocation(),head);
+                    if (meta != null) {
+                        ((SkullMeta)meta).setOwningPlayer(e.getEntity());
+                        head.setItemMeta(meta);
+                        e.getEntity().getLocation().getWorld().dropItem(e.getEntity().getLocation(),head);
+                    }
                 }
             }
         }
