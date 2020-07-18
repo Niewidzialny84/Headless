@@ -26,7 +26,8 @@ public enum Mob {
     OCELOT(EntityType.OCELOT,MobHead.OCELOT),
     PHANTOM(EntityType.PHANTOM,MobHead.PHANTOM),
     PIG(EntityType.PIG,MobHead.PIG),
-    PIG_ZOMBIE(EntityType.PIG_ZOMBIE,MobHead.PIG_ZOMBIE),
+    //TODO: Add more new added mobs/fix old ones
+    //PIG_ZOMBIE(EntityType.PIG_ZOMBIE,MobHead.PIG_ZOMBIE),
     PILLAGER(EntityType.PILLAGER,MobHead.PILLAGER),
     POLAR_BEAR(EntityType.POLAR_BEAR,MobHead.POLAR_BEAR),
     RAVAGER(EntityType.RAVAGER,MobHead.RAVAGER),
