@@ -142,3 +142,18 @@ ZOMBIE:
 ZOMBIE_VILLAGER:
   drop: true
   chance: 5
+PIGLIN:
+  drop: true
+  chance: 5
+ZOMBIEFIED_PIGLIN:
+  drop: true
+  chance: 5
+ZOGLIN:
+  drop: true
+  chance: 5
+STRIDER:
+  drop: true
+  chance: 5
+COD:
+  drop: true
+  chance: 5
