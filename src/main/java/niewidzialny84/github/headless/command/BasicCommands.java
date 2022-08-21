@@ -1,23 +1,24 @@
-package niewidzialny84.github.headless.Commands;
+package niewidzialny84.github.headless.command;
 
-import niewidzialny84.github.headless.Config;
-import niewidzialny84.github.headless.DeathListener;
-import niewidzialny84.github.headless.MobHead;
+import niewidzialny84.github.headless.Headless;
+import niewidzialny84.github.headless.head.MobHead;
+import niewidzialny84.github.headless.head.SkullGenerator;
 import org.bukkit.*;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.plugin.Plugin;
 
 import java.util.Collection;
 
-public class Basic implements CommandExecutor {
+public class BasicCommands implements CommandExecutor {
 
-    private Plugin plugin;
+    private final Headless plugin;
 
-    public Basic(Plugin plugin) {
+    public BasicCommands(Headless plugin) {
         this.plugin = plugin;
+
+        plugin.getCommand("headless").setExecutor(this);
     }
 
     @Override
@@ -30,7 +31,7 @@ public class Basic implements CommandExecutor {
                 }
 
                 if(args[0].equalsIgnoreCase("RELOAD")) {
-                    Config.load(plugin);
+                    plugin.reload();
                     commandSender.sendMessage(ChatColor.DARK_AQUA+"Plugin reloaded succesfully");
                     return true;
                 } else if(args[0].equalsIgnoreCase("GETHEAD")) {
@@ -42,7 +43,7 @@ public class Basic implements CommandExecutor {
                                     Collection<? extends Player> p = plugin.getServer().getOnlinePlayers();
                                     for (Player a : p) {
                                         if (args[2].equals(a.getName())) {
-                                            a.getPlayer().getInventory().addItem(DeathListener.getTexturedSkull(head.getName(), head.getUrl()));
+                                            a.getPlayer().getInventory().addItem(SkullGenerator.getTexturedSkull(head.getName(), head.getUrl()));
                                             a.getPlayer().playSound(a.getLocation(), Sound.ENTITY_ITEM_PICKUP, 2, 0);
                                             return true;
                                         }
@@ -50,7 +51,7 @@ public class Basic implements CommandExecutor {
                                     commandSender.sendMessage(ChatColor.DARK_AQUA + "Player " + ChatColor.AQUA + args[2] + ChatColor.DARK_AQUA + " not found");
                                     return true;
                                 } else {
-                                    ((Player) commandSender).getPlayer().getInventory().addItem(DeathListener.getTexturedSkull(head.getName(), head.getUrl()));
+                                    ((Player) commandSender).getPlayer().getInventory().addItem(SkullGenerator.getTexturedSkull(head.getName(), head.getUrl()));
                                     ((Player) commandSender).getPlayer().playSound(((Player) commandSender).getPlayer().getLocation(), Sound.ENTITY_ITEM_PICKUP, 2, 0);
                                     return true;
                                 }
@@ -69,7 +70,7 @@ public class Basic implements CommandExecutor {
                                 Collection<? extends Player> p = plugin.getServer().getOnlinePlayers();
                                 for (Player a : p) {
                                     if (args[2].equals(a.getName())) {
-                                        a.getPlayer().getInventory().addItem(DeathListener.getPlayerHead(Bukkit.getOfflinePlayer(args[1])));
+                                        a.getPlayer().getInventory().addItem(SkullGenerator.getPlayerHead(Bukkit.getOfflinePlayer(args[1])));
                                         a.getPlayer().playSound(a.getLocation(), Sound.ENTITY_ITEM_PICKUP, 2, 0);
                                         return true;
                                     }
@@ -77,7 +78,7 @@ public class Basic implements CommandExecutor {
                                 commandSender.sendMessage(ChatColor.DARK_AQUA + "Player " + ChatColor.AQUA + args[2] + ChatColor.DARK_AQUA + " not found");
                                 return true;
                             } else {
-                                ((Player) commandSender).getPlayer().getInventory().addItem(DeathListener.getPlayerHead(Bukkit.getOfflinePlayer(args[1])));
+                                ((Player) commandSender).getPlayer().getInventory().addItem(SkullGenerator.getPlayerHead(Bukkit.getOfflinePlayer(args[1])));
                                 ((Player) commandSender).getPlayer().playSound(((Player) commandSender).getPlayer().getLocation(), Sound.ENTITY_ITEM_PICKUP, 2, 0);
                                 return true;
                             }
@@ -97,7 +98,7 @@ public class Basic implements CommandExecutor {
                 }
 
                 if(args[0].equalsIgnoreCase("RELOAD")) {
-                    Config.load(plugin);
+                    plugin.reload();
                     commandSender.sendMessage(ChatColor.DARK_AQUA + "Plugin reloaded succesfully");
                     return true;
                 } else if(args[0].equalsIgnoreCase("GETHEAD")) {
@@ -109,7 +110,7 @@ public class Basic implements CommandExecutor {
                                     Collection<? extends Player> p = plugin.getServer().getOnlinePlayers();
                                     for (Player a : p) {
                                         if (args[2].equals(a.getName())) {
-                                            a.getPlayer().getInventory().addItem(DeathListener.getTexturedSkull(head.getName(), head.getUrl()));
+                                            a.getPlayer().getInventory().addItem(SkullGenerator.getTexturedSkull(head.getName(), head.getUrl()));
                                             a.getPlayer().playSound(a.getLocation(), Sound.ENTITY_ITEM_PICKUP, 2, 0);
                                             return true;
                                         }
@@ -139,7 +140,7 @@ public class Basic implements CommandExecutor {
                                 Collection<? extends Player> p = plugin.getServer().getOnlinePlayers();
                                 for (Player a : p) {
                                     if (args[2].equals(a.getName())) {
-                                        a.getPlayer().getInventory().addItem(DeathListener.getPlayerHead(Bukkit.getOfflinePlayer(args[1])));
+                                        a.getPlayer().getInventory().addItem(SkullGenerator.getPlayerHead(Bukkit.getOfflinePlayer(args[1])));
                                         a.getPlayer().playSound(a.getLocation(), Sound.ENTITY_ITEM_PICKUP, 2, 0);
                                         return true;
                                     }

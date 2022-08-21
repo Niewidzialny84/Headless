@@ -1,6 +1,6 @@
 package niewidzialny84.github.headless.mob.special;
 
-import niewidzialny84.github.headless.MobHead;
+import niewidzialny84.github.headless.head.MobHead;
 import org.bukkit.entity.Cat.Type;
 import org.bukkit.entity.Entity;
 
@@ -18,8 +18,8 @@ public enum Cats {
     BRITISH_SHORTHAIR(Type.BRITISH_SHORTHAIR,MobHead.BRITISH_SHORTHAIR_CAT),
     ;
 
-    public Type type;
-    public MobHead mobhead;
+    public final Type type;
+    public final MobHead mobhead;
 
     Cats(Type type, MobHead mobhead) {
         this.type = type;

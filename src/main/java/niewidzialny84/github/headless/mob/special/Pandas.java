@@ -1,6 +1,6 @@
 package niewidzialny84.github.headless.mob.special;
 
-import niewidzialny84.github.headless.MobHead;
+import niewidzialny84.github.headless.head.MobHead;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Panda.Gene;
 
@@ -14,8 +14,8 @@ public enum Pandas {
     AGGRESSIVE(Gene.AGGRESSIVE, MobHead.PANDA_AGRESSIVE),
     ;
 
-    public Gene gene;
-    public MobHead mobHead;
+    public final Gene gene;
+    public final MobHead mobHead;
 
     Pandas(Gene gene, MobHead mobHead) {
         this.gene = gene;

@@ -1,159 +1,244 @@
 PLAYER:
   drop: true
-  chance: 50
+  chance: 15
+  looting: 1
+WITHER_SKELETON:
+  drop: true
+  chance: 1
+  looting: 1
 BAT:
   drop: true
   chance: 5
+  looting: 1
 BLAZE:
   drop: true
   chance: 5
+  looting: 1
 BEE:
   drop: true
   chance: 5
+  looting: 1
 CAT:
   drop: true
   chance: 5
+  looting: 1
 CAVE_SPIDER:
   drop: true
   chance: 5
+  looting: 1
 CHICKEN:
   drop: true
   chance: 5
+  looting: 1
 COW:
   drop: true
   chance: 5
+  looting: 1
 CREEPER:
   drop: true
   chance: 5
+  looting: 1
 DROWNED:
   drop: true
   chance: 5
+  looting: 1
 DOLPHIN:
   drop: true
   chance: 5
+  looting: 1
 ELDER_GUARDIAN:
   drop: true
   chance: 5
+  looting: 1
 ENDERMAN:
   drop: true
   chance: 5
+  looting: 1
 EVOKER:
   drop: true
   chance: 5
+  looting: 1
 FOX:
   drop: true
   chance: 5
+  looting: 1
 GHAST:
   drop: true
   chance: 5
+  looting: 1
 GUARDIAN:
   drop: true
   chance: 5
+  looting: 1
 HUSK:
   drop: true
   chance: 5
+  looting: 1
 HORSE:
   drop: true
   chance: 5
+  looting: 1
 IRON_GOLEM:
   drop: true
   chance: 5
+  looting: 1
 LLAMA:
   drop: true
   chance: 5
+  looting: 1
 MAGMA_CUBE:
   drop: true
   chance: 5
+  looting: 1
 MUSHROOM_COW:
   drop: true
   chance: 5
+  looting: 1
 OCELOT:
   drop: true
   chance: 5
+  looting: 1
 PANDA:
   drop: true
   chance: 5
+  looting: 1
 PARROT:
   drop: true
   chance: 5
+  looting: 1
 PHANTOM:
   drop: true
   chance: 5
+  looting: 1
 PIG:
   drop: true
   chance: 5
+  looting: 1
 PIG_ZOMBIE:
   drop: true
   chance: 5
+  looting: 1
 PILLAGER:
   drop: true
   chance: 5
+  looting: 1
 POLAR_BEAR:
   drop: true
   chance: 5
+  looting: 1
 RABBIT:
   drop: true
   chance: 5
+  looting: 1
 RAVAGER:
   drop: true
   chance: 5
+  looting: 1
 SHEEP:
   drop: true
   chance: 5
+  looting: 1
 SHULKER:
   drop: true
   chance: 5
+  looting: 1
 SKELETON:
   drop: true
   chance: 5
+  looting: 1
 SLIME:
   drop: true
   chance: 5
+  looting: 1
 SPIDER:
   drop: true
   chance: 5
+  looting: 1
 SNOWMAN:
   drop: true
   chance: 5
+  looting: 1
 SQUID:
   drop: true
   chance: 5
+  looting: 1
 TURTLE:
   drop: true
   chance: 5
+  looting: 1
 VINDICATOR:
   drop: true
   chance: 5
+  looting: 1
 VEX:
   drop: true
   chance: 5
+  looting: 1
 WITCH:
   drop: true
   chance: 5
+  looting: 1
 WITHER:
   drop: true
   chance: 5
+  looting: 1
 WOLF:
   drop: true
   chance: 5
+  looting: 1
 ZOMBIE:
   drop: true
   chance: 5
+  looting: 1
 ZOMBIE_VILLAGER:
   drop: true
   chance: 5
+  looting: 1
 PIGLIN:
   drop: true
   chance: 5
+  looting: 1
 ZOMBIEFIED_PIGLIN:
   drop: true
   chance: 5
+  looting: 1
 ZOGLIN:
   drop: true
   chance: 5
+  looting: 1
 STRIDER:
   drop: true
   chance: 5
+  looting: 1
 COD:
   drop: true
   chance: 5
+  looting: 1
+GLOW_SQUID:
+  drop: true
+  chance: 5
+  looting: 1
+FROG:
+  drop: true
+  chance: 5
+  looting: 1
+AXOLOTL:
+  drop: true
+  chance: 5
+  looting: 1
+ALLAY:
+  drop: true
+  chance: 5
+  looting: 1
+WARDEN:
+  drop: true
+  chance: 5
+  looting: 1
+TADPOLE:
+  drop: true
+  chance: 5
+  looting: 1
+GOAT:
+  drop: true
+  chance: 5
+  looting: 1

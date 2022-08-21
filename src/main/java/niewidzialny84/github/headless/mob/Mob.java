@@ -1,10 +1,7 @@
 package niewidzialny84.github.headless.mob;
 
-import niewidzialny84.github.headless.MobHead;
-import org.bukkit.entity.Cod;
-import org.bukkit.entity.Entity;
+import niewidzialny84.github.headless.head.MobHead;
 import org.bukkit.entity.EntityType;
-import org.bukkit.entity.Piglin;
 
 public enum Mob {
     BAT(EntityType.BAT,MobHead.BAT),
@@ -50,11 +47,19 @@ public enum Mob {
     ZOMBIEFIED_PIGLIN(EntityType.ZOMBIFIED_PIGLIN,MobHead.ZOMBIE_PIGLIN),
     ZOGLIN(EntityType.ZOGLIN,MobHead.ZOGLIN),
     STRIDER(EntityType.STRIDER,MobHead.STRIDER),
-    COD(EntityType.COD,MobHead.COD)
+    COD(EntityType.COD,MobHead.COD),
+    //1.19 additions
+    GLOW_SQUID(EntityType.GLOW_SQUID, MobHead.GLOW_SQUID),
+    FROG(EntityType.FROG, MobHead.FROG),
+    AXOLOTL(EntityType.AXOLOTL, MobHead.AXOLOTL),
+    ALLAY(EntityType.ALLAY, MobHead.ALLAY),
+    WARDEN(EntityType.WARDEN, MobHead.WARDEN),
+    TADPOLE(EntityType.TADPOLE, MobHead.TADPOLE),
+    GOAT(EntityType.GOAT, MobHead.GOAT)
     ;
 
-    public EntityType entity;
-    public MobHead mobHead;
+    public final EntityType entity;
+    public final MobHead mobHead;
 
     Mob(EntityType entity, MobHead mobHead) {
         this.entity = entity;

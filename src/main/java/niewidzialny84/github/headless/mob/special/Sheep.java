@@ -1,10 +1,11 @@
 package niewidzialny84.github.headless.mob.special;
 
-import niewidzialny84.github.headless.MobHead;
+import niewidzialny84.github.headless.head.MobHead;
 import org.bukkit.DyeColor;
 import org.bukkit.entity.Entity;
 
-public enum Sheeps {
+public enum Sheep
+{
     BLACK(DyeColor.BLACK,MobHead.SHEEP_BLACK),
     WHITE(DyeColor.WHITE,MobHead.SHEEP_WHITE),
     BROWN(DyeColor.BROWN,MobHead.SHEEP_BROWN),
@@ -23,17 +24,17 @@ public enum Sheeps {
     LIGHT_GRAY(DyeColor.LIGHT_GRAY,MobHead.SHEEP_LIGHT_GRAY),
     ;
 
-    public DyeColor color;
-    public MobHead mobHead;
+    public final DyeColor color;
+    public final MobHead mobHead;
 
-    Sheeps(DyeColor color, MobHead mobHead) {
+    Sheep(DyeColor color, MobHead mobHead) {
         this.color = color;
         this.mobHead = mobHead;
     }
 
-    public static Sheeps getSheep(Entity entity) {
+    public static Sheep getSheep(Entity entity) {
         DyeColor color = ((org.bukkit.entity.Sheep)entity).getColor();
-        for(Sheeps x : Sheeps.values()) {
+        for(Sheep x : Sheep.values()) {
             if(color.equals(x.color)) {
                 return x;
             }

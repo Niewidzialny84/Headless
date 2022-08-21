@@ -1,6 +1,6 @@
 package niewidzialny84.github.headless.mob.special;
 
-import niewidzialny84.github.headless.MobHead;
+import niewidzialny84.github.headless.head.MobHead;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Parrot.Variant;
 
@@ -12,8 +12,8 @@ public enum Parrots {
     GREEN(Variant.GREEN,MobHead.GREEN_PARROT),
     ;
 
-    public Variant variant;
-    public MobHead mobHead;
+    public final Variant variant;
+    public final MobHead mobHead;
 
     Parrots(Variant variant, MobHead mobHead) {
         this.variant = variant;

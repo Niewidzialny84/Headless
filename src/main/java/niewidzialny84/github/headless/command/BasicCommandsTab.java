@@ -1,24 +1,24 @@
-package niewidzialny84.github.headless.Commands;
+package niewidzialny84.github.headless.command;
 
-import niewidzialny84.github.headless.MobHead;
+import niewidzialny84.github.headless.Headless;
+import niewidzialny84.github.headless.head.MobHead;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
-import org.bukkit.plugin.Plugin;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
-public class BasicTab implements TabCompleter {
+public class BasicCommandsTab implements TabCompleter {
     private final static List<String> EMPTY = new ArrayList<>();
     private List<String> SUB = Arrays.asList("help","reload","gethead","getplayerhead");
     private List<String> HEAD = new ArrayList<>();
     private List<String> PLAYERS = new ArrayList<>();
 
-    public BasicTab(Plugin plugin) {
+    public BasicCommandsTab(Headless plugin) {
         MobHead[] heads = MobHead.values();
         for(MobHead head : heads) {
             HEAD.add(head.name());
@@ -28,6 +28,8 @@ public class BasicTab implements TabCompleter {
         for (Player a : p) {
             PLAYERS.add(a.getName());
         }
+
+        plugin.getCommand("headless").setTabCompleter(this);
     }
 
     @Override

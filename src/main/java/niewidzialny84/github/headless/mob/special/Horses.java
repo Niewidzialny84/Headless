@@ -1,6 +1,6 @@
 package niewidzialny84.github.headless.mob.special;
 
-import niewidzialny84.github.headless.MobHead;
+import niewidzialny84.github.headless.head.MobHead;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Horse.Color;
 
@@ -14,8 +14,8 @@ public enum Horses {
     DARK_BROWN(Color.DARK_BROWN,MobHead.DARK_BROWN_HORSE),
 
     ;
-    public Color color;
-    public MobHead mobHead;
+    public final Color color;
+    public final MobHead mobHead;
 
     Horses(Color color, MobHead mobHead) {
         this.color = color;

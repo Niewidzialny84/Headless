@@ -1,6 +1,6 @@
 package niewidzialny84.github.headless.mob.special;
 
-import niewidzialny84.github.headless.MobHead;
+import niewidzialny84.github.headless.head.MobHead;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Rabbit.Type;
 
@@ -14,8 +14,8 @@ public enum Rabbits {
     THE_KILLER_BUNNY(Type.THE_KILLER_BUNNY,MobHead.THE_KILLER_BUNNY),
     ;
 
-    public Type type;
-    public MobHead mobHead;
+    public final Type type;
+    public final MobHead mobHead;
 
     Rabbits(Type type, MobHead mobHead) {
         this.type = type;
